@@ -405,7 +405,7 @@ module pulp_soc import dm::*; #(
   dummy_top #() dummy_vip ();
 
   // MY WIDE ALU IP
-  AXU_BUS #(
+  AXI_BUS #(
     .AXI_ADDR_WIDTH ( 32                ),
     .AXI_DATA_WIDTH ( 32                ),
     .AXI_ID_WIDTH   ( AXI_ID_OUT_WIDTH   ),
