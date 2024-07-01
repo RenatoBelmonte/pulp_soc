@@ -823,7 +823,7 @@ module pulp_soc import dm::*; #(
   wide_alu_top #(
     .AXI_ADDR_WIDTH ( AXI_ADDR_WIDTH    ),
     .AXI_ID_WIDTH   ( AXI_ID_OUT_WIDTH  ),
-    .AXI_USER_WIDTH ( AXI_USER_WIDTH    ),
+    .AXI_USER_WIDTH ( AXI_USER_WIDTH    )
   ) i_wide_alu (
     .clk_i          ( soc_clk_i         ),
     .rst_ni         ( soc_rstn_synced_i ),
