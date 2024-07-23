@@ -74,9 +74,10 @@ module fc_hwpe
     .per_master_r_rdata_i ( periph_r_rdata          )
   );
 
-  datamover_top_wrap #(
+  //datamover_top_wrap #(
+  mac_top_wrap #(
     .ID  ( ID_WIDTH )
-  ) i_datamover_top_wrap (
+  ) mac_top_wrap (
     .clk_i            ( clk_i          ),
     .rst_ni           ( rst_ni         ),
     .test_mode_i      ( test_mode_i    ),
