@@ -412,6 +412,15 @@ module pulp_soc import dm::*; #(
     .AXI_USER_WIDTH ( AXI_USER_WIDTH    )
   ) s_wide_alu_bus ();
 
+  // SPIKER
+  AXI_BUS #(
+    .AXI_ADDR_WIDTH ( 32                ),
+    .AXI_DATA_WIDTH ( 32                ),
+    .AXI_ID_WIDTH   ( AXI_ID_OUT_WIDTH   ),
+    .AXI_USER_WIDTH ( AXI_USER_WIDTH    )
+  ) s_spiker_adapter_bus ();
+
+
   AXI_BUS #(
     .AXI_ADDR_WIDTH ( AXI_ADDR_WIDTH    ),
     .AXI_DATA_WIDTH ( AXI_DATA_IN_WIDTH ),
@@ -817,7 +826,8 @@ module pulp_soc import dm::*; #(
     .l2_interleaved_slaves   ( s_mem_l2_bus        ),
     .l2_private_slaves       ( s_mem_l2_pri_bus    ),
     .boot_rom_slave          ( s_mem_rom_bus       ),
-    .wide_alu_slave          ( s_wide_alu_bus      )
+    .wide_alu_slave          ( s_wide_alu_bus      ),
+    .spiker_adapter_slave    ( s_spiker_adapter_bus)
   );
 
   wide_alu_top #(
@@ -830,6 +840,19 @@ module pulp_soc import dm::*; #(
     .test_mode_i    ( dft_test_mode_i   ),
     .axi_slave      ( s_wide_alu_bus    )
   );
+
+// SPIKER TOP
+  spiker_adapter #(
+    .AXI_ADDR_WIDTH ( AXI_ADDR_WIDTH    ),
+    .AXI_ID_WIDTH   ( AXI_ID_OUT_WIDTH  ),
+    .AXI_USER_WIDTH ( AXI_USER_WIDTH    )
+  ) i_spiker_adapter (
+    .clk_i          ( soc_clk_i         ),
+    .rst_ni         ( soc_rstn_synced_i ),
+    .test_mode_i    ( dft_test_mode_i   ),
+    .axi_slave      ( s_spiker_adapter_bus    )
+  );
+
 
   /* Debug Subsystem */
 
