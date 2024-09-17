@@ -58,7 +58,7 @@ module soc_interconnect_wrap
      XBAR_TCDM_BUS.Master     l2_private_slaves[2],               // Connects to core-private memory banks
      XBAR_TCDM_BUS.Master     boot_rom_slave,                     // Connects to the bootrom
      AXI_BUS.Master           wide_alu_slave,                     // MY WIDE ALU IP
-     AXI_BUS.Master           spiker_slave                        // SPIKER
+     AXI_BUS.Master           spiker_adapter_slave                // SPIKER
    );
 
   //**Do not change these values unles you verified that all downstream IPs are properly parametrized and support it**
