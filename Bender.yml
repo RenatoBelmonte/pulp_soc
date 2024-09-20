@@ -35,7 +35,7 @@ dependencies:
   register_interface:     { git: "https://github.com/pulp-platform/register_interface.git", version: 0.4.1 }
   dummy_vip:              { git: "https://github.com/RenatoBelmonte/dummy_vip.git", rev: master}  
   #wide_alu:               { git: "https://github.com/RenatoBelmonte/myIP", rev: main }
-  spiker_adapter:         { git: "https://github.com/RenatoBelmonte/spiker_adapter", rev: main }
+  spiker_adapter:         { git: "https://github.com/RenatoBelmonte/spiker_adapter", rev: wide_alu_based_branch }
 
 sources:
   # pulp_soc
